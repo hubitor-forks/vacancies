@@ -22,6 +22,6 @@ TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 # 	# "proxy": { "server": "http://192.168.1.19:8889" },
 # }
 
-PLAYWRIGHT_DEFAULT_NAVIGATION_TIMEOUT = 90000
+PLAYWRIGHT_DEFAULT_NAVIGATION_TIMEOUT = 200000
 PLAYWRIGHT_ABORT_REQUEST = lambda req: req.resource_type == "image"
 PLAYWRIGHT_MAX_PAGES_PER_CONTEXT = 1
