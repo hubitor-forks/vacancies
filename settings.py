@@ -1,8 +1,10 @@
+LOG_STDOUT = True
+LOG_FILE = 'log.txt'
 LOG_LEVEL = 'INFO'
 
 USER_AGENT= 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:26.0) Gecko/20100101 Firefox/26.0',
 
-ROBOTSTXT_OBEY = False
+# ROBOTSTXT_OBEY = False
 
 ITEM_PIPELINES = {
     'pipelines.MultyPipeline': 300,

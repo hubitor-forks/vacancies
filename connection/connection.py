@@ -49,8 +49,8 @@ class DBConnector(object):
         self.conn.commit()
 
         # Deleting not verified vacancies
-        self.curr.execute('DELETE FROM vacancies.indeed_job AS t1 WHERE t1.company NOT IN (SELECT t2.Company FROM JOBS_FINDER.verified_companies AS t2);')
-        self.conn.commit()
+        # self.curr.execute('DELETE FROM vacancies.indeed_job AS t1 WHERE t1.company NOT IN (SELECT t2.Company FROM JOBS_FINDER.verified_companies AS t2);')
+        # self.conn.commit()
 
     def store_db(self, item):
         self.curr.execute("select * from vacancies.indeed_job where source_id = %s", (item['source_id'],))
@@ -66,12 +66,13 @@ class DBConnector(object):
                                 item['location'],
                                 item['salary'],
                                 item['schedule'],
+                                # '' if item['shift'] is None else item['shift'],
                                 item['short_description'][0:255],
                                 item['full_description'][0:1000],
                                 item['link'],
                                 item['website'],
                                 '' if item['logo_url'] is None else item['logo_url'],
-                                item['created_at']))
+                                datetime.now()))
 
             self.conn.commit()
 
@@ -93,6 +94,6 @@ class DBConnector(object):
                                 item['link'],
                                 item['website'],
                                 '' if item['logo_url'] is None else item['logo_url'],
-                                item['created_at']))
+                                datetime.now()))
 
                 self.conn.commit()
